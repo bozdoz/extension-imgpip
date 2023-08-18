@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" width="360" height="360" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <defs id="defs1">
+      <linearGradient id="linearGradient23">
+         <stop style="stop-color:#ffa744;stop-opacity:1;" offset="0.14529915" id="stop24" />
+         <stop style="stop-color:#e057ff;stop-opacity:1;" offset="0.55128205" id="stop26" />
+         <stop style="stop-color:#52b3ff;stop-opacity:1;" offset="0.88034189" id="stop25" />
+      </linearGradient>
+      <radialGradient href="#linearGradient23" id="radialGradient25" cx="123.8152" cy="344.09399"
+         fx="123.8152" fy="344.09399" r="166.26369"
+         gradientTransform="matrix(2.0525592,0.20292094,-0.22791294,2.3053549,-116.12816,-506.94141)"
+         gradientUnits="userSpaceOnUse" />
+      <clipPath clipPathUnits="userSpaceOnUse" id="clipPath26">
+         <path
+            style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:44.1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+            d="M 55.661688,63.4754 298.90642,309.54856 296.07799,60.64697 Z" id="path26" />
+      </clipPath>
+   </defs>
+   <g id="layer1" transform="translate(-5.7403306,-4.3396821)" style="display:inline">
+      <path
+         style="display:inline;fill:url(#radialGradient25);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 95.492578,13.419231 C 17.067975,48.201517 -7.6476133,201.18318 34.511409,295.70383 67.70246,370.11826 237.83984,387.44703 315.74463,328.89235 351.22899,302.22165 375.79643,142.01334 339.3178,84.215255 302.5422,25.946637 156.45888,-13.620083 95.492578,13.419231 Z"
+         id="path1" />
+      <path id="path27" clip-path="url(#clipPath26)"
+         style="display:inline;fill:none;stroke:#ffffff;stroke-width:44.1;stroke-linejoin:round"
+         transform="matrix(1.1661789,0,0,1.1661789,-50.834084,-6.5776989)"
+         d="M 91.923882,101.82338 H 264.45794 V 274.35744 H 91.923882 Z" />
+      <path id="rect23" clip-path="url(#clipPath26)"
+         style="display:inline;fill:none;stroke:#ffffff;stroke-width:44.1;stroke-linejoin:round"
+         transform="matrix(0.63862779,0,0,0.63862779,13.514787,121.97318)"
+         d="M 91.923882,101.82338 H 264.45794 V 274.35744 H 91.923882 Z" />
+   </g>
+</svg>

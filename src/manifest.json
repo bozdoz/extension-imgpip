@@ -10,7 +10,10 @@
     "128": "images/imgpip-icon.svg"
   },
   "homepage_url": "https://bozdoz.com",
-  "permissions": ["activeTab", "tabs", "contextMenus", "scripting"],
+  "permissions": [
+    "tabs",
+    "contextMenus"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -19,8 +22,5 @@
   ],
   "background": {
     "scripts": ["background.js"]
-  },
-  "host_permissions": [
-    "https://*/"
-  ]
+  }
 }

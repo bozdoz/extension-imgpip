@@ -1,20 +1,18 @@
 browser.contextMenus.create({
   id: "imgpip",
-  // TODO: get title from locales
-  title: "Image Picture-in-Picture",
+  title: browser.i18n.getMessage("menu-title"),
   contexts: ["all"],
 });
 
-browser.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "imgpip") {
-    browser.tabs.sendMessage(tab.id, {});
-  }
+browser.contextMenus.onClicked.addListener((_info, tab) => {
+  browser.tabs.sendMessage(tab.id, {});
 });
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   fetch(request)
     .then((response) => response.blob())
     .then(sendResponse);
 
+  // return true marks this as async
   return true;
 });

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "IMGPIP",
   "description": "Use Picture-In-Picture on images",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "default_locale": "en",
   "icons": {
     "16": "images/imgpip-icon.svg",
@@ -10,7 +10,7 @@
     "128": "images/imgpip-icon.svg"
   },
   "homepage_url": "https://bozdoz.com",
-  "permissions": ["tabs", "contextMenus"],
+  "permissions": ["<all_urls>", "tabs", "contextMenus"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -20,7 +20,6 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs2gUiw0/Jm7yAA2wCwQQFB+lqsJE6XKk5ogcfnpxZTF7/p6cpV1HelMfx6eGydWWVIlyOnDw3ZnCZMy9n1Y6QQNYmCMy/etJm+4bXewZlaWejdQLC6QaJF6cItheNHAnkLR3PIHc3atXMHcQa/IdwtB1olXRiYTCitwijM/vhwnYSm2L40DVda2E4SS8h1yueW8fgGmeiQ9pPprfaWPwtlBKcZoGPI6DxkI6yQCIBOmpxAqgzILPwGpEOtaRbaaEfLzLRvhjdq8V4KjfHQHFWDKGFc5DjjsXr8TQARDTR3tFMXUAPummL/K0MvC1WSZjKGi1Y4r5gCctmo/OrVUINwIDAQAB",
   "browser_specific_settings": {
     "gecko": {
       "id": "imgpip@bozdoz.com"

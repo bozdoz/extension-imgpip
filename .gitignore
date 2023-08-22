@@ -2,3 +2,5 @@
 Archive.zip
 key.pem
 .env
+node_modules/
+web-ext-artifacts/

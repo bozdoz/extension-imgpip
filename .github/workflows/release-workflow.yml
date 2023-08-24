@@ -18,7 +18,9 @@ jobs:
       - run: npm run lint
       - name: Get release information
         id: release_info
-        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
+        run: |
+          echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
+          echo "COMMITS=$(git log $(git tag --sort=v:refname | tail -2 | head -1)..HEAD --no-merges --format='%cs - %s (%cn)')" >> $GITHUB_OUTPUT
       - name: Build Package(s)
         run: npm run build
       - name: Create Release
@@ -26,7 +28,7 @@ jobs:
         with:
           files: web-ext-artifacts/imgpip-${{ steps.release_info.outputs.VERSION }}.zip
           fail_on_unmatched_files: true
-          body: ${{ github.event.head_commit.message }}
+          body: ${{ steps.release_info.outputs.COMMITS }}
       - name: Debugging Outputs
         if: ${{ failure() }}
         run: |

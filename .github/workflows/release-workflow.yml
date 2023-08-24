@@ -20,7 +20,7 @@ jobs:
         id: release_info
         run: |
           echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
-          echo "COMMITS=$(git log $(git tag --sort=v:refname | tail -2 | head -1)..HEAD --no-merges --format='%cs - %s (%cn)')" >> $GITHUB_OUTPUT
+          echo "COMMITS=$(git log $(git tag --sort=v:refname | tail -2 | head -1)..HEAD --no-merges --format='%cs - %s (%cn) %h')" >> $GITHUB_OUTPUT
       - name: Build Package(s)
         run: npm run build
       - name: Create Release

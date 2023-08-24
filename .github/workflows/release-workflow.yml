@@ -5,6 +5,9 @@ on:
     tags:
       - v*
 
+permissions:
+  contents: write
+
 # loosely: https://github.com/gorhill/uBlock/blob/master/.github/workflows/main.yml
 jobs:
   release:

@@ -1,16 +1,13 @@
 {
   "name": "extension-imgpip",
-  "version": "1.0.0",
   "description": "Make images work in Picture-in-Picture",
+  "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "start": "web-ext run -s src",
     "build": "web-ext build -s src --overwrite-dest",
     "lint": "web-ext lint -s src"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "web-ext": "^7.6.2"

@@ -1,0 +1,35 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - v*
+
+# loosely: https://github.com/gorhill/uBlock/blob/master/.github/workflows/main.yml
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+            node-version: 18
+      - run: npm ci
+      - run: npm run lint
+      - name: Get release information
+        id: release_info
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
+      - name: Build Package(s)
+        run: npm run build
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: web-ext-artifacts/imgpip-${{ steps.release_info.outputs.VERSION }}.zip
+          fail_on_unmatched_files: true
+          body: ${{ github.event.head_commit.message }}
+      - name: Debugging Outputs
+        if: ${{ failure() }}
+        run: |
+          ls *
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "Version: ${{ steps.release_info.outputs.VERSION }}"

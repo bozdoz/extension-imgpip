@@ -1,6 +1,6 @@
 # imgpip
 
-<img src="https://raw.githubusercontent.com/bozdoz/extension-imgpip/491de1e72b5de1d751ac544af02f34f095c854d8/assets/imgpip-icon-inkscape.svg" alt="IMGPIP Icon" width="200" />
+<img src="https://raw.githubusercontent.com/bozdoz/extension-imgpip/main/assets/imgpip-icon-inkscape.svg" alt="IMGPIP Icon" width="200" />
 
 Make images work in Picture-in-Picture
 

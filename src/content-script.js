@@ -1,4 +1,6 @@
 (() => {
+  const $ = typeof chrome === "undefined" ? browser : chrome;
+
   /** last target of a contextMenu */
   let lastTarget = null;
 
@@ -11,7 +13,7 @@
   );
 
   // listen for message from background script (context menu clicked)
-  browser.runtime.onMessage.addListener(handleContextMenu);
+  $.runtime.onMessage.addListener(handleContextMenu);
 
   function handleContextMenu() {
     // check the parent's children for an img (instagram hack)
@@ -31,21 +33,43 @@
   }
 
   /**
+   * Converts a base64 string to an ArrayBuffer
+   * @param {string} base64
+   * @returns {ArrayBuffer}
+   */
+  function base64ToArrayBuffer(base64) {
+    const binary = atob(base64);
+    const len = binary.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return bytes.buffer;
+  }
+
+  /**
    * get image the hard way (background script calls fetch)
-   * 
-   * @param {string} src 
+   *
+   * @param {string} src
    * @returns Promise<string>
    */
   async function getImgSrc(src) {
-    /** @type Blob */
-    const blob = await browser.runtime.sendMessage(src);
-    
-    return URL.createObjectURL(blob);
+    const response = await $.runtime.sendMessage(src);
+
+    if (!response || !response.buffer) {
+      console.log("[IMGPIP] Could not get response", response);
+      return;
+    }
+
+    const arrayBuffer = base64ToArrayBuffer(response.buffer);
+    return URL.createObjectURL(
+      new Blob([arrayBuffer], { type: response.type })
+    );
   }
 
   /**
    * Converts an image into a canvas, then streams the canvas into a video
-   * @param {HtmlImageElement} img 
+   * @param {HtmlImageElement} img
    */
   async function img2Pip(img) {
     const canvas = document.createElement("canvas");

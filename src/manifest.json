@@ -1,16 +1,19 @@
 {
-  "manifest_version": 2,
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "manifest_version": 3,
   "name": "IMGPIP",
   "description": "Use Picture-In-Picture on images",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "default_locale": "en",
   "icons": {
-    "16": "images/imgpip-icon.svg",
-    "48": "images/imgpip-icon.svg",
-    "128": "images/imgpip-icon.svg"
+    "16": "images/imgpip-icon-16.png",
+    "32": "images/imgpip-icon-32.png",
+    "48": "images/imgpip-icon-48.png",
+    "128": "images/imgpip-icon-128.png"
   },
   "homepage_url": "https://bozdoz.com",
-  "permissions": ["<all_urls>", "tabs", "contextMenus"],
+  "permissions": ["tabs", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -18,6 +21,7 @@
     }
   ],
   "background": {
+    "service_worker": "background.js",
     "scripts": ["background.js"]
   },
   "browser_specific_settings": {

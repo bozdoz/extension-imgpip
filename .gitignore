@@ -4,3 +4,4 @@ key.pem
 .env
 node_modules/
 web-ext-artifacts/
+dist/
